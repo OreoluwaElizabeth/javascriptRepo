@@ -1,0 +1,77 @@
+//function set(array){
+  //  const result = [];
+    //for(let counter = 0; counter < array.length; counter++) {
+      //  if(!result.includes(array[counter])) {
+        //    result.push(array[counter]);
+        //}
+    //}
+    //return result;
+//}  
+
+//const input = [1, 1, 2, 3, 3, 4];
+//const output = set(input);
+//console.log(output);
+
+//const array = [6, 7, 6, 8, 7, 9];
+//const result = set(array);
+//console.log(result);
+
+let animal = {
+    name: "unknown",
+    color: "red",
+    size: 15,
+    age: 12,
+    sound: function() {
+        return(`${this.name} ${this.age}`);
+    }
+}
+
+let cat = Object.create(animal)
+cat.name = "pussy cat";
+cat.color = "black";
+cat.size = 20;
+cat.age = 10;
+console.log(cat);
+console.log(cat.sound());
+
+let blackCat = Object.create(cat);
+blackCat.color = "black";
+console.log(blackCat);
+
+let dog = {}
+Object.setPrototypeOf(dog, animal);
+dog.name = "Bulldog";
+console.log(dog);
+
+let tiger = {}
+tiger._proto_ = animal;
+console.log(tiger);
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  this.describe = function() {
+    console.log(`My name is ${this.name} and I am ${this.age}years`);
+  }
+}
+
+const chinedu = new Person("Ugbo", 16);
+Person.prototype.species = "Human";
+console.log(chinedu.species);
+//chinedu.describe();
+
+class Animal{
+  constructor(name, color){
+    this.name = name;
+    this.color = color
+  }
+
+  getName(){
+    return this.name;
+  };
+}
+
+const goat = new Animal("Black goat", "Abidoshaker");
+console.log(goat.getName());
+
